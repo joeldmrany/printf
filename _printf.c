@@ -24,9 +24,8 @@ int _printf(const char *format, ...)
 			_putchar(c);
 			b++;
 			a++;
-			a++;
 		}
-		if (format[a] == '%' && format[a + 1] == 's')
+		else if (format[a] == '%' && format[a + 1] == 's')
 		{
 			d = va_arg(argu, char*);
 			if (d != NULL)
@@ -37,10 +36,11 @@ int _printf(const char *format, ...)
 					b++;
 				}
 				a++;
-				a++;
 			}
+			else
+				_putchar(0);
 		}
-		if (format[a] == '%' && format[a + 1] == '%')
+		else if (format[a] == '%' && format[a + 1] == '%')
 		{
 			_putchar('%');
 			b++;
