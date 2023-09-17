@@ -46,6 +46,8 @@ int _printf(const char *format, ...)
 			b++;
 			a++;
 		}
+		else if (format[a] == '%' && format[a + 1] != ('s' || 'c' || '%'))
+			return (-1);
 		else
 		{
 			_putchar(format[a]);
