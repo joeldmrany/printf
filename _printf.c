@@ -7,7 +7,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int a, b, i;
+	int a, b, i, n;
 	char c;
 	char *d;
 	va_list argu;
@@ -48,6 +48,33 @@ int _printf(const char *format, ...)
 		}
 		/*else if (format[a] == '%' && format[a + 1] != ('s' || 'c' || '%'))
 			return (-1);*/
+		else if ((format[a] == '%' && format[a + 1] == 'd') || (format[a] == '%' && format[a + 1] == 'i'))
+
+		{
+			n = va_arg(argu, int);
+			if (n < 10)
+			{
+				_putchar(n + 48);
+				b++;
+			}
+			else if (n >= 10 && n < 100)
+			{
+				_putchar((n / 10) + 48);
+				_putchar((n % 10) + 48);
+				b++;
+				b++;
+			}
+			else if (n > 100 && n < 1000)
+			{
+				_putchar((n / 100) + 48);
+				_putchar(((n % 100) / 10) + 48);
+				_putchar(((n % 100) % 10) + 48);
+				b++;
+				b++;
+				b++;
+			}
+			a++;
+		}
 		else
 		{
 			_putchar(format[a]);
