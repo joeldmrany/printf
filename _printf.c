@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	unsigned int a;
-	int b, i, n;
+	int b, i, *n;
 	char c;
 	char *d;
 	va_list argu;
@@ -51,32 +51,20 @@ int _printf(const char *format, ...)
 		}
 		else if (format[a] == '%' && format[a + 1] == '\0')
 			return (-1);
-		else if ((format[a] == '%' && format[a + 1] == 'd') || (format[a] == '%' && format[a + 1] == 'i'))
-
+		else if (format[a] == '%' && format[a + 1] == 'd')
 		{
-			n = va_arg(argu, int);
-			if (n < 10)
+			n = va_arg(argu, int*);	
+			for (i = 0; n[i]; i++)
 			{
-				_putchar(n + 48);
-				b++;
+				if (_isdigit(n[i]))
+				{
+					_putchar(n[i]);
+					b++;
+				}
+				else
+					return (-1);
 			}
-			else if (n >= 10 && n < 100)
-			{
-				_putchar((n / 10) + 48);
-				_putchar((n % 10) + 48);
-				b++;
-				b++;
-			}
-			else if (n > 100 && n < 1000)
-			{
-				_putchar((n / 100) + 48);
-				_putchar(((n % 100) / 10) + 48);
-				_putchar(((n % 100) % 10) + 48);
-				b++;
-				b++;
-				b++;
-			}
-			a++;
+			b++;
 		}
 		else
 		{
