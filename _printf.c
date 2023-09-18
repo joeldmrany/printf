@@ -7,7 +7,8 @@
  */
 int _printf(const char *format, ...)
 {
-	int a, b, i, n;
+	unsigned int a;
+	int b, i, n;
 	char c;
 	char *d;
 	va_list argu;
