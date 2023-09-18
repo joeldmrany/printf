@@ -53,7 +53,7 @@ int _printf(const char *format, ...)
 			return (-1);
 		else if (format[a] == '%' && format[a + 1] == 'd')
 		{
-			n = va_arg(argu, int*);	
+			n = va_arg(argu, int*);
 			for (i = 0; n[i]; i++)
 			{
 				if (_isdigit(n[i]))
