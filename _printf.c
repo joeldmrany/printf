@@ -77,7 +77,7 @@ int _printf(const char *format, ...)
 			}
 			a++;
 		}
-		else if (format[a] != '%')
+		else
 		{
 			_putchar(format[a]);
 			b++;
