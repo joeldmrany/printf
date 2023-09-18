@@ -12,6 +12,8 @@ int _printf(const char *format, ...)
 	char *d;
 	va_list argu;
 
+	if (!format || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
 	va_start (argu, format);
 	if (format == NULL)
 		return (0);
@@ -46,7 +48,7 @@ int _printf(const char *format, ...)
 			b++;
 			a++;
 		}
-		else if (!format || (format[a] == '%' && format[a + 1] == '\0'))
+		else if (format[a] == '%' && format[a + 1] == '\0')
 			return (-1);
 		else if ((format[a] == '%' && format[a + 1] == 'd') || (format[a] == '%' && format[a + 1] == 'i'))
 
