@@ -46,8 +46,8 @@ int _printf(const char *format, ...)
 			b++;
 			a++;
 		}
-		/*else if (format[a] == '%' && format[a + 1] != ('s' || 'c' || '%'))
-			return (-1);*/
+		else if (!format || (format[a] == '%' && format[a + 1] == '\0'))
+			return (-1);
 		else if ((format[a] == '%' && format[a + 1] == 'd') || (format[a] == '%' && format[a + 1] == 'i'))
 
 		{
