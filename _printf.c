@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-	va_start (argu, format);
+	va_start(argu, format);
 	if (format == NULL)
 		return (0);
 	b = 0;
