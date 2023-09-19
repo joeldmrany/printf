@@ -9,4 +9,6 @@ int _strlen(char *str);
 int _numlen(int *num);
 void printnumber(int number);
 int countdigits(int number);
+int _isdigits(int num);
+
 #endif

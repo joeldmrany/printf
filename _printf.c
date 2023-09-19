@@ -54,8 +54,11 @@ int _printf(const char *format, ...)
 		else if (format[a] == '%' && format[a + 1] == 'd')
 		{
 			n = va_arg(argu, int);
-			printnumber(n);
-			len = countdigits(n);
+			if (_isdigits(n))
+			{
+				printnumber(n);
+				len = countdigits(n);
+			}
 			b += len;
 			a++;
 		}
