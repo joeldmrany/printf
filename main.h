@@ -5,5 +5,6 @@
 int _putchar(char c);
 int _printf(const char *format, ...);
 int _isdigit(int num);
+int _strlen(char *str);
 
 #endif
